@@ -2,65 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Entry Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scheme Application Data Entry Form</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 p-6">
   <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
-    <h2 class="text-2xl font-bold mb-6 text-center">Anemia Data Entry Form</h2>
+    <h1 class="text-2xl font-bold mb-6 text-center">Scheme Application Data Entry</h1>
     <form id="dataForm" class="space-y-4">
+
       <div>
-        <label class="block text-sm font-medium">Full Name</label>
-        <input type="text" name="name" class="w-full mt-1 p-2 border rounded-md" required />
+        <label class="block font-medium">Ration Card No</label>
+        <input type="text" name="ration_card" class="w-full border rounded p-2" required>
       </div>
 
       <div>
-        <label class="block text-sm font-medium">Date of Birth</label>
-        <input type="date" name="dob" class="w-full mt-1 p-2 border rounded-md" required />
+        <label class="block font-medium">Aadhar Card No</label>
+        <input type="text" name="aadhar_card" class="w-full border rounded p-2" required>
       </div>
 
       <div>
-        <label class="block text-sm font-medium">Age</label>
-        <input type="number" name="age" class="w-full mt-1 p-2 border rounded-md" />
+        <label class="block font-medium">Name of Beneficiary</label>
+        <input type="text" name="beneficiary_name" class="w-full border rounded p-2" required>
       </div>
 
       <div>
-        <label class="block text-sm font-medium">Mobile Number</label>
-        <input type="tel" name="mobile" pattern="\d{10}" title="10 digit mobile number" class="w-full mt-1 p-2 border rounded-md" required />
+        <label class="block font-medium">Gender</label>
+        <select name="gender" class="w-full border rounded p-2" required>
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
 
       <div>
-        <label class="block text-sm font-medium">Check-up Date</label>
-        <input type="date" name="checkup_date" class="w-full mt-1 p-2 border rounded-md" required />
+        <label class="block font-medium">Village Name</label>
+        <input type="text" name="village_name" class="w-full border rounded p-2" required>
       </div>
 
       <div>
-        <label class="block text-sm font-medium">Address</label>
-        <textarea name="address" rows="2" class="w-full mt-1 p-2 border rounded-md"></textarea>
+        <label class="block font-medium">Scheme Name</label>
+        <input type="text" name="scheme_name" class="w-full border rounded p-2" required>
       </div>
 
       <div>
-        <label class="block text-sm font-medium">Remarks</label>
-        <textarea name="remarks" rows="2" class="w-full mt-1 p-2 border rounded-md"></textarea>
+        <label class="block font-medium">Application Create Date</label>
+        <input type="date" name="application_create_date" class="w-full border rounded p-2" required>
       </div>
 
-      <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">Submit</button>
+      <div>
+        <label class="block font-medium">Status of Application Update</label>
+        <input type="text" name="status_update" class="w-full border rounded p-2">
+      </div>
+
+      <div>
+        <label class="block font-medium">Application Update Date</label>
+        <input type="date" name="application_update_date" class="w-full border rounded p-2">
+      </div>
+
+      <div>
+        <label class="block font-medium">Status of Application Submitted</label>
+        <input type="text" name="status_submitted" class="w-full border rounded p-2">
+      </div>
+
+      <div>
+        <label class="block font-medium">Date of Application Submitted</label>
+        <input type="date" name="submitted_date" class="w-full border rounded p-2">
+      </div>
+
+      <div>
+        <label class="block font-medium">Status of Application Benefited</label>
+        <input type="text" name="status_benefited" class="w-full border rounded p-2">
+      </div>
+
+      <div>
+        <label class="block font-medium">Date of Benefits</label>
+        <input type="date" name="benefits_date" class="w-full border rounded p-2">
+      </div>
+
+      <div>
+        <label class="block font-medium">If Rejected, Reason</label>
+        <textarea name="rejection_reason" class="w-full border rounded p-2" rows="3"></textarea>
+      </div>
+
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">Submit</button>
     </form>
   </div>
 
   <script>
-    const form = document.getElementById('dataForm');
-    form.addEventListener('submit', function(event) {
+    document.getElementById('dataForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      const formData = new FormData(form);
-      const entries = {};
-      formData.forEach((value, key) => {
-        entries[key] = value;
-      });
-      console.log("Submitted Data:", entries);
-      alert("Form submitted successfully!");
-      form.reset();
+      alert('Form submitted! (This is just a frontend. To store data, you need backend integration.)');
     });
   </script>
 </body>
