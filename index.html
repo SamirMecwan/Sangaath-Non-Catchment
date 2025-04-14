@@ -1,16 +1,67 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Data Entry Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <h2>Data Entry Form</h2>
-  <form>
-    Name: <input type="text" name="name"><br><br>
-    Age: <input type="number" name="age"><br><br>
-    Email: <input type="email" name="email"><br><br>
-    <input type="submit" value="Submit">
-  </form>
+<body class="bg-gray-100 p-6">
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Anemia Data Entry Form</h2>
+    <form id="dataForm" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium">Full Name</label>
+        <input type="text" name="name" class="w-full mt-1 p-2 border rounded-md" required />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Date of Birth</label>
+        <input type="date" name="dob" class="w-full mt-1 p-2 border rounded-md" required />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Age</label>
+        <input type="number" name="age" class="w-full mt-1 p-2 border rounded-md" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Mobile Number</label>
+        <input type="tel" name="mobile" pattern="\d{10}" title="10 digit mobile number" class="w-full mt-1 p-2 border rounded-md" required />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Check-up Date</label>
+        <input type="date" name="checkup_date" class="w-full mt-1 p-2 border rounded-md" required />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Address</label>
+        <textarea name="address" rows="2" class="w-full mt-1 p-2 border rounded-md"></textarea>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium">Remarks</label>
+        <textarea name="remarks" rows="2" class="w-full mt-1 p-2 border rounded-md"></textarea>
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('dataForm');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const entries = {};
+      formData.forEach((value, key) => {
+        entries[key] = value;
+      });
+      console.log("Submitted Data:", entries);
+      alert("Form submitted successfully!");
+      form.reset();
+    });
+  </script>
 </body>
 </html>
